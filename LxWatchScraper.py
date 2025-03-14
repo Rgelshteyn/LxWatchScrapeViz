@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime , timedelta
@@ -41,8 +42,8 @@ def scrape_watch_data(url):
     return watches
 
 if __name__ == "__main__":
-    excel_file_path = 'B:\WatchReconScraper\WatchForumList.xlsx'
-
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    excel_file_path = os.path.join(current_dir, 'WatchForumList.xlsx')
 
     # Scrape the watch data from the website
     new_watches_data = scrape_watch_data(url)

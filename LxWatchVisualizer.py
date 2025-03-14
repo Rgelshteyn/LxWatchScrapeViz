@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -54,7 +55,8 @@ def plot_price_trends_over_time(df):
     plt.show()
 
 if __name__ == "__main__":
-    excel_file_path = 'B:\\WatchReconScraper\\WatchForumList.xlsx'
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    excel_file_path = os.path.join(current_dir, 'WatchForumList.xlsx')
     #excel_file_path
     df = load_data(excel_file_path)
     df = clean_data(df)
